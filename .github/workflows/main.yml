@@ -16,7 +16,7 @@ jobs:
 
       - name: Extract Android project
         run: |
-          ZIP="$(find . -maxdepth 3 -iname 'OrderSlipAndroid*.zip' | head -n 1)"
+          ZIP="$(find . -maxdepth 3 -iname 'StockFinderAndroid*.zip' | head -n 1)"
           if [ -z "$ZIP" ]; then
             echo "Zip file not found in repo"
             ls -R | head -100
@@ -149,7 +149,6 @@ jobs:
             git add release-key.jks
             git commit -m "Add release signing keystore (auto-generated)"
             git push
-            echo "Keystore committed to repo — future builds will reuse it."
           else
             echo "Keystore already in repo — nothing to commit."
           fi
